@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Mega Bud Alians</title>
+<script>
+  // Single Page App redirect for GitHub Pages.
+  // GitHub Pages only serves real files, so a deep link like
+  // /polityka-prywatności/delete-account 404s here. We store the
+  // requested path and bounce to "/", where index.html restores it
+  // via history.replaceState (see initialRoute() in index.html).
+  var redirectPath = location.pathname + location.search + location.hash;
+  sessionStorage.setItem('mba_redirect', redirectPath);
+  location.replace(location.origin + '/');
+</script>
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>

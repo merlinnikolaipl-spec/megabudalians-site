@@ -1104,15 +1104,71 @@
   }
   document.addEventListener('click', closeLangMenu);
 
-  function showPage(id){
+  var PAGE_PATHS = {
+    'home': '/',
+    'construction': '/uslugi-budowlane',
+    'toolkeeper': '/toolkeeper',
+    'privacy': '/polityka-prywatności',
+    'delete-account': '/polityka-prywatności/delete-account'
+  };
+
+  function pathForPage(id){
+    return PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+  }
+
+  function pageForPath(path){
+    var norm = path.replace(/\/+$/, '') || '/';
+    var decoded = norm;
+    try { decoded = decodeURIComponent(norm); } catch(e) {}
+    for (var id in PAGE_PATHS) {
+      if (PAGE_PATHS[id] === norm || PAGE_PATHS[id] === decoded) return id;
+    }
+    if (decoded === '/polityka-prywatnosci') return 'privacy';
+    if (decoded === '/polityka-prywatnosci/delete-account') return 'delete-account';
+    return null;
+  }
+
+  function showPage(id, opts){
     document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active'); });
     var target = document.getElementById(id);
     if(target) target.classList.add('active');
     window.scrollTo(0,0);
+    var skipHistory = opts && opts.skipHistory;
+    if (!skipHistory) {
+      var path = pathForPage(id);
+      if (location.pathname !== path) {
+        history.pushState({ page: id }, '', path);
+      }
+    }
   }
+
+  window.addEventListener('popstate', function(e){
+    var id = (e.state && e.state.page) || pageForPath(location.pathname) || 'home';
+    showPage(id, { skipHistory: true });
+  });
 
   buildLangMenu();
   applyLang(currentLang);
+
+  (function initialRoute(){
+    // Restore the path a GitHub Pages 404.html redirect stashed (see /404.html).
+    try {
+      var redirect = sessionStorage.getItem('mba_redirect');
+      if (redirect) {
+        sessionStorage.removeItem('mba_redirect');
+        var url = new URL(redirect, location.origin);
+        if (url.pathname !== location.pathname) {
+          history.replaceState(null, '', url.pathname + url.search + url.hash);
+        }
+      }
+    } catch(e) {}
+
+    var id = pageForPath(location.pathname);
+    if (id) {
+      showPage(id, { skipHistory: true });
+      history.replaceState({ page: id }, '', pathForPage(id));
+    }
+  })();
 
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
