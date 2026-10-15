@@ -3,13 +3,13 @@
 <title>Инструмент «в ремонте» и «списан»: как не терять деньги на повторных закупках — Блог Mega Bud Alians</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Почему компании закупают инструмент заново, хотя он просто лежит в ремонте — и как статусы инструмента помогают не тратить деньги повторно.">
-<link rel="canonical" href="https://www.megabudalians.pl/blog/instrument-v-remonte-spisan">
+<link rel="canonical" href="https://www.megabudalians.pl/blog/instrument-v-remonte-spisan/">
 <link rel="icon" type="image/png" href="https://www.megabudalians.pl/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mega Bud Alians">
 <meta property="og:title" content="Инструмент «в ремонте» и «списан»: как не терять деньги на повторных закупках — Блог Mega Bud Alians">
 <meta property="og:description" content="Почему компании закупают инструмент заново, хотя он просто лежит в ремонте — и как статусы инструмента помогают не тратить деньги повторно.">
-<meta property="og:url" content="https://www.megabudalians.pl/blog/instrument-v-remonte-spisan">
+<meta property="og:url" content="https://www.megabudalians.pl/blog/instrument-v-remonte-spisan/">
 <meta property="og:image" content="https://www.megabudalians.pl/og-image.png">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
@@ -1514,7 +1514,8 @@ gtag('config', 'G-8K4MVNMK27');
   };
 
   function pathForPage(id){
-    return PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    var p = PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    return (p === '/' || /\/$/.test(p)) ? p : p + '/';
   }
 
   function pageForPath(path){
