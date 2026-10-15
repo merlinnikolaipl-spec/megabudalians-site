@@ -3,13 +3,13 @@
 <title>Как не терять инструмент на стройке: 7 рабочих способов — Блог Mega Bud Alians</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="7 проверенных способов сократить потери инструмента на объекте — от маркировки до автоматического учёта.">
-<link rel="canonical" href="https://www.megabudalians.pl/blog/kak-ne-teryat-instrument-na-stroike">
+<link rel="canonical" href="https://www.megabudalians.pl/blog/kak-ne-teryat-instrument-na-stroike/">
 <link rel="icon" type="image/png" href="https://www.megabudalians.pl/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mega Bud Alians">
 <meta property="og:title" content="Как не терять инструмент на стройке: 7 рабочих способов — Блог Mega Bud Alians">
 <meta property="og:description" content="7 проверенных способов сократить потери инструмента на объекте — от маркировки до автоматического учёта.">
-<meta property="og:url" content="https://www.megabudalians.pl/blog/kak-ne-teryat-instrument-na-stroike">
+<meta property="og:url" content="https://www.megabudalians.pl/blog/kak-ne-teryat-instrument-na-stroike/">
 <meta property="og:image" content="https://www.megabudalians.pl/og-image.png">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
@@ -1514,7 +1514,8 @@ gtag('config', 'G-8K4MVNMK27');
   };
 
   function pathForPage(id){
-    return PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    var p = PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    return (p === '/' || /\/$/.test(p)) ? p : p + '/';
   }
 
   function pageForPath(path){
