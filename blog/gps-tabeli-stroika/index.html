@@ -3,13 +3,13 @@
 <title>GPS-табели на стройке: как контролировать рабочее время бригады без лишней бюрократии — Блог Mega Bud Alians</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Как GPS-отметки на объекте заменяют бумажные табели и споры «во сколько кто пришёл» — разбираем плюсы и подводные камни для прораба.">
-<link rel="canonical" href="https://www.megabudalians.pl/blog/gps-tabeli-stroika">
+<link rel="canonical" href="https://www.megabudalians.pl/blog/gps-tabeli-stroika/">
 <link rel="icon" type="image/png" href="https://www.megabudalians.pl/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mega Bud Alians">
 <meta property="og:title" content="GPS-табели на стройке: как контролировать рабочее время бригады без лишней бюрократии — Блог Mega Bud Alians">
 <meta property="og:description" content="Как GPS-отметки на объекте заменяют бумажные табели и споры «во сколько кто пришёл» — разбираем плюсы и подводные камни для прораба.">
-<meta property="og:url" content="https://www.megabudalians.pl/blog/gps-tabeli-stroika">
+<meta property="og:url" content="https://www.megabudalians.pl/blog/gps-tabeli-stroika/">
 <meta property="og:image" content="https://www.megabudalians.pl/og-image.png">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
@@ -1514,7 +1514,8 @@ gtag('config', 'G-8K4MVNMK27');
   };
 
   function pathForPage(id){
-    return PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    var p = PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    return (p === '/' || /\/$/.test(p)) ? p : p + '/';
   }
 
   function pageForPath(path){
