@@ -3,13 +3,13 @@
 <title>Сколько компания теряет из-за потерянного инструмента: считаем на примере — Блог Mega Bud Alians</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Простой расчёт: во сколько реально обходится «пропавшая» дрель или перфоратор — и почему учёт инструмента окупается за пару месяцев.">
-<link rel="canonical" href="https://www.megabudalians.pl/blog/skolko-teryaet-kompaniya">
+<link rel="canonical" href="https://www.megabudalians.pl/blog/skolko-teryaet-kompaniya/">
 <link rel="icon" type="image/png" href="https://www.megabudalians.pl/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mega Bud Alians">
 <meta property="og:title" content="Сколько компания теряет из-за потерянного инструмента: считаем на примере — Блог Mega Bud Alians">
 <meta property="og:description" content="Простой расчёт: во сколько реально обходится «пропавшая» дрель или перфоратор — и почему учёт инструмента окупается за пару месяцев.">
-<meta property="og:url" content="https://www.megabudalians.pl/blog/skolko-teryaet-kompaniya">
+<meta property="og:url" content="https://www.megabudalians.pl/blog/skolko-teryaet-kompaniya/">
 <meta property="og:image" content="https://www.megabudalians.pl/og-image.png">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
@@ -1514,7 +1514,8 @@ gtag('config', 'G-8K4MVNMK27');
   };
 
   function pathForPage(id){
-    return PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    var p = PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    return (p === '/' || /\/$/.test(p)) ? p : p + '/';
   }
 
   function pageForPath(path){
