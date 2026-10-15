@@ -3,13 +3,13 @@
 <title>Строительные услуги и реализация конструкторских проектов | Mega Bud Alians</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Mega Bud Alians — индивидуальная предпринимательская деятельность, зарегистрированная в Польше. Компания специализируется на строительных услугах и реализации конструкторских проектов на территории Польши.">
-<link rel="canonical" href="https://www.megabudalians.pl/uslugi-budowlane">
+<link rel="canonical" href="https://www.megabudalians.pl/uslugi-budowlane/">
 <link rel="icon" type="image/png" href="https://www.megabudalians.pl/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mega Bud Alians">
 <meta property="og:title" content="Строительные услуги и реализация конструкторских проектов | Mega Bud Alians">
 <meta property="og:description" content="Mega Bud Alians — индивидуальная предпринимательская деятельность, зарегистрированная в Польше. Компания специализируется на строительных услугах и реализации конструкторских проектов на территории Польши.">
-<meta property="og:url" content="https://www.megabudalians.pl/uslugi-budowlane">
+<meta property="og:url" content="https://www.megabudalians.pl/uslugi-budowlane/">
 <meta property="og:image" content="https://www.megabudalians.pl/og-image.png">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
@@ -20,7 +20,7 @@
 {"@context":"https://schema.org","@type":"Organization","name":"Mega Bud Alians","legalName":"Mykola Ivanov Mega Bud Alians","url":"https://www.megabudalians.pl/","logo":"https://www.megabudalians.pl/og-image.png","description":"Строительная компания и разработчик ToolKeeper — приложения для учёта инструмента и техники на стройке."}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"GeneralContractor","name":"Mega Bud Alians","legalName":"Mykola Ivanov Mega Bud Alians","url":"https://www.megabudalians.pl/uslugi-budowlane","description":"Mega Bud Alians — индивидуальная предпринимательская деятельность, зарегистрированная в Польше. Компания специализируется на строительных услугах и реализации конструкторских проектов на территории Польши.","areaServed":"PL"}
+{"@context":"https://schema.org","@type":"GeneralContractor","name":"Mega Bud Alians","legalName":"Mykola Ivanov Mega Bud Alians","url":"https://www.megabudalians.pl/uslugi-budowlane/","description":"Mega Bud Alians — индивидуальная предпринимательская деятельность, зарегистрированная в Польше. Компания специализируется на строительных услугах и реализации конструкторских проектов на территории Польши.","areaServed":"PL"}
 </script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -1517,7 +1517,8 @@ gtag('config', 'G-8K4MVNMK27');
   };
 
   function pathForPage(id){
-    return PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    var p = PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    return (p === '/' || /\/$/.test(p)) ? p : p + '/';
   }
 
   function pageForPath(path){
