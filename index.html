@@ -1514,7 +1514,8 @@ gtag('config', 'G-8K4MVNMK27');
   };
 
   function pathForPage(id){
-    return PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    var p = PAGE_PATHS.hasOwnProperty(id) ? PAGE_PATHS[id] : '/';
+    return (p === '/' || /\/$/.test(p)) ? p : p + '/';
   }
 
   function pageForPath(path){
